@@ -1,0 +1,21 @@
+Nombre, Tipo, Origen, Material, Precio
+Piano de cola, Cuerda, Alemania, Madera, 10
+Guitarra acústica, Cuerda, España, Madera, 500
+Trompeta, Viento-metal, Estados Unidos, Latón, 800
+Batería, Percusión, Estados Unidos, Acero, 1200
+Flauta traversa, Viento-madera, Francia, Plata, 300
+Saxofón, Viento-metal, Bélgica, Latón, 1000
+Violín, Cuerda, Italia, Madera, 1500
+Teclado electrónico, Electrónico, Japón, Plástico, 300
+Bajo eléctrico, Cuerda, Estados Unidos, Madera, 600
+Tambor africano, Percusión, África, Madera, 150
+Trombón, Viento-metal, Alemania, Latón, 600
+Cello, Cuerda, Italia, Madera, 2
+Armónica, Viento-metal, Alemania, Metal, 50
+Xilófono, Percusión, Bélgica, Madera, 300
+Clarinete, Viento-madera, Alemania, Madera, 400
+Órgano de tubos, Teclado, Francia, Madera, 5000
+Bongos, Percusión, Cuba, Madera, 100
+Sitar, Cuerda, India, Madera, 300
+Tuba, Viento-metal, Alemania, Latón, 1200
+Tambor taiko, Percusión, Japón, Madera, 400
