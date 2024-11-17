@@ -1,6 +1,8 @@
 package modelo;
 
-public class Instrumento {
+import java.io.Serializable;
+
+public class Instrumento implements Serializable {
     private String nombre, tipo, origen, material;
     private double precio;
 

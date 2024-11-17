@@ -20,8 +20,10 @@ public class Controller {
     public int menu() {
         int opcion;
 
-        vista.textoPantalla("1. Leer un fichero txt y almacenar sus datos en un ArrayList " + "\n"
-                + "0. Salir");
+        vista.textoPantalla("""
+                1. Leer un fichero txt y almacenar sus datos en un ArrayList
+                2. Escribir objetos del fichero txt en un fichero binario
+                0. Salir""");
         opcion = sc.nextInt();
         sc.nextLine();
         return opcion;
@@ -47,6 +49,16 @@ public class Controller {
 
                     vista.textoPantalla(ir.mostarInstrumentos());
                     vista.textoPantalla("");
+                    break;
+                case 2:
+                    vista.textoPantalla("Introduce la ruta del fichero txt");
+                    rOrigen = sc.nextLine();
+                    vista.textoPantalla("Introduce la ruta del fichero binario");
+                    rDestino = sc.nextLine();
+
+                    ir.escribirFicheroBinObjetos(rOrigen, rDestino);
+                    vista.textoPantalla("Datos guardados en el fichero " + rDestino + ":");
+                    vista.textoPantalla(ir.leerArchivoDatos(rDestino));
                     break;
                 default:
                     System.out.println("Opcion no valida");
