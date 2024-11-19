@@ -152,4 +152,39 @@ public class InstrumentoRepositorio {
         }
         return aux;
     }
+
+    public void escribirFicheroBinarioDatos(String rOrigen, String rDestino) {
+        listaInstrumentos = readTxtToArray(rOrigen);
+
+        File f = new File(rDestino);
+        FileOutputStream fos = null;
+        DataOutputStream dos = null;
+
+        try {
+            if (f.length() > 0) {
+                fos = new FileOutputStream(f, true);
+            } else {
+                fos = new FileOutputStream(f);
+            }
+            dos = new DataOutputStream(fos);
+            for (Instrumento instrumento : listaInstrumentos) {
+                dos.writeUTF(instrumento.getNombre());
+                dos.writeUTF(instrumento.getTipo());
+                dos.writeUTF(instrumento.getOrigen());
+                dos.writeUTF(instrumento.getMaterial());
+                dos.writeDouble(instrumento.getPrecio());
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                dos.close();
+                fos.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }

@@ -23,6 +23,7 @@ public class Controller {
         vista.textoPantalla("""
                 1. Leer un fichero txt y almacenar sus datos en un ArrayList
                 2. Escribir objetos del fichero txt en un fichero binario
+                3. Escribir datos del fichero txt en un fichero binario
                 0. Salir""");
         opcion = sc.nextInt();
         sc.nextLine();
@@ -59,6 +60,16 @@ public class Controller {
                     ir.escribirFicheroBinObjetos(rOrigen, rDestino);
                     vista.textoPantalla("Datos guardados en el fichero " + rDestino + ":");
                     vista.textoPantalla(ir.leerArchivoDatos(rDestino));
+                    break;
+                case 3:
+                    vista.textoPantalla("Introduce la ruta del fichero txt");
+                    rOrigen = sc.nextLine();
+                    vista.textoPantalla("Introduce la ruta del fichero binario");
+                    rDestino = sc.nextLine();
+
+                    ir.escribirFicheroBinarioDatos(rOrigen, rDestino);
+                    vista.textoPantalla("Datos guardados en el fichero " + rDestino + ":");
+                    vista.textoPantalla(ir.mostarInstrumentos());
                     break;
                 default:
                     System.out.println("Opcion no valida");
