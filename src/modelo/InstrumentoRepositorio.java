@@ -5,6 +5,13 @@ import java.util.ArrayList;
 
 public class InstrumentoRepositorio {
 
+    private final int NOMBRE_SIZE = 30;
+    private final int TIPO_SIZE = 30;
+    private final int ORIGEN_SIZE = 30;
+    private final int MATERIAL_SIZE = 30;
+    private final double PRECIO_SIZE = 8;
+
+
     ArrayList<Instrumento> listaInstrumentos;
 
     /**
@@ -153,6 +160,12 @@ public class InstrumentoRepositorio {
         return aux;
     }
 
+    /**
+     * lee de un fichero txt y escribe los datos en un fichero .dat
+     *
+     * @param rOrigen  String con la ruta del fichero txt
+     * @param rDestino String con la ruta del fichero dat
+     */
     public void escribirFicheroBinarioDatos(String rOrigen, String rDestino) {
         listaInstrumentos = readTxtToArray(rOrigen);
 
@@ -185,6 +198,52 @@ public class InstrumentoRepositorio {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }
+    }
+
+    /**
+     * @param rOrigen
+     * @param rDestino
+     */
+    public void escribirFicheroAleatorio(String rOrigen, String rDestino) {
+        listaInstrumentos = readTxtToArray(rOrigen);
+
+        File f = new File(rDestino);
+        RandomAccessFile raf = null;
+
+        try {
+            raf = new RandomAccessFile(f, "rw");
+            raf.seek(0);
+
+            for (Instrumento instrumento : listaInstrumentos) {
+                escribirFicheroAleatorio(raf, instrumento);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                raf.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    /**
+     * @param raf
+     * @param instrumento
+     */
+    public void escribirFicheroAleatorio(RandomAccessFile raf, Instrumento instrumento) {
+        try {
+            raf.writeUTF(instrumento.getNombre());
+            raf.writeUTF(instrumento.getTipo());
+            raf.writeUTF(instrumento.getOrigen());
+            raf.writeUTF(instrumento.getMaterial());
+            raf.writeDouble(instrumento.getPrecio());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
